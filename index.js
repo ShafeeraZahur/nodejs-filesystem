@@ -7,17 +7,8 @@
 //Creating a folder.
 
 const fs = require('fs');
-
-fs.mkdir("New-Folder", () => {
-    console.log("Folder Created Successfullys");
-  });
-
-
-
-const express = require('express');
-// const fs = require('fs');
 const path = require('path');
-
+const express = require('express');
 const app = express();
 const port = 5000;
 
@@ -25,7 +16,7 @@ const port = 5000;
 
 
 app.post('/createfile', (req, res) => {
-  const folderPath = 'New-Folder'; 
+  const folderPath = 'Sample-Folder'; 
   console.log('Folder Path:', folderPath);
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString(); 
@@ -47,7 +38,7 @@ app.post('/createfile', (req, res) => {
 // 2. Endpoint to retrieve all the files in a particular folder
 
 app.get('/getAllFiles',(req,res)=>{
-    const folderPath='New-Folder';
+    const folderPath='Sample-Folder';
     try {
         const files = fs.readdirSync(folderPath);
         res.status(200).json({ files });
