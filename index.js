@@ -37,10 +37,10 @@ const port = 5000;
 //   }
 // });
 
-app.post('/createaFile', (req, res) => {
+app.post('/createfile/post', (req, res) => {
   const folderPath = 'Sample-Folder'; // Replace 'your-folder' with your desired folder path
   const currentDate = new Date();
-  const formattedDate = currentDate.toISOString().replace(/:/g, '-').replace(/\..+/, ''); // Format date for filename
+  const formattedDate = currentDate.toISOString().replace(/:/g, '-'); // Format date for filename
   const fileName = `${formattedDate}.txt`;
   const filePath = path.join(folderPath, fileName);
   const content = `${Date.now()}`; // Content is the current timestamp
