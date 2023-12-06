@@ -37,7 +37,7 @@ const port = 5000;
 //   }
 // });
 
-app.post('/createfile/post', (req, res) => {
+app.post('/createfile', (req, res) => {
   const folderPath = 'Sample-Folder'; // Replace 'your-folder' with your desired folder path
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString().replace(/:/g, '-'); // Format date for filename
