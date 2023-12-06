@@ -24,7 +24,7 @@ const port = 5000;
 // 1. Endpoint to create a file
 app.post('/createFile', (req, res) => {
   const folderPath = 'Sample-folder';
-  const currentDate = new Date().toISOString().replace(/:/g, '-');
+  const currentDate = new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '');
   const fileName = `${currentDate}.txt`;
   const filePath = path.join(folderPath, fileName);
   const content = `${Date.now()}`; 
