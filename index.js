@@ -38,12 +38,12 @@ const port = 5000;
 // });
 
 app.post('/createfile', (req, res) => {
-  const folderPath = 'Sample-Folder'; // Replace 'your-folder' with your desired folder path
+  const folderPath = 'Sample-Folder'; 
   const currentDate = new Date();
-  const formattedDate = currentDate.toISOString().replace(/:/g, '-'); // Format date for filename
+  const formattedDate = currentDate.toISOString(); 
   const fileName = `${formattedDate}.txt`;
   const filePath = path.join(folderPath, fileName);
-  const content = `${Date.now()}`; // Content is the current timestamp
+  const content = `${Date.now()}`; 
 
   fs.writeFile(filePath, content, (err) => {
     if (err) {
