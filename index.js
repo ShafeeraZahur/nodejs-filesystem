@@ -26,6 +26,7 @@ const port = 5000;
 
 app.post('/createfile', (req, res) => {
   const folderPath = 'New-Folder'; 
+  console.log('Folder Path:', folderPath);
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString(); 
   const fileName = `${formattedDate}.txt`;
@@ -36,7 +37,9 @@ app.post('/createfile', (req, res) => {
     if (err) {
       return res.status(500).json({ error: 'Error creating file' });
     }
+    console.log('File created successfully:', filePath);
     return res.status(200).json({ message: 'File created successfully', filePath });
+    
   });
 });
 
