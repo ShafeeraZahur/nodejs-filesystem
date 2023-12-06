@@ -2,7 +2,7 @@
      a.content of the file should be current timestamp
      b.the filename should be current date-time.txt
 
-API endpoint that I used: '/createFile'
+API endpoint that I used: '/createfile'
 
 Render URL : https://nodejs-filesystemendpoint.onrender.com/createfile
 
