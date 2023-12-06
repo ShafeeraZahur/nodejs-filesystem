@@ -22,19 +22,35 @@ const app = express();
 const port = 5000;
 
 // 1. Endpoint to create a file
-app.post('/createFile', (req, res) => {
-  const folderPath = 'Sample-folder';
-  const currentDate = new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '');
-  const fileName = `${currentDate}.txt`;
-  const filePath = path.join(folderPath, fileName);
-  const content = `${Date.now()}`; 
+// app.post('/createFile', (req, res) => {
+//   const folderPath = 'Sample-folder';
+//   const currentDate = new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '');
+//   const fileName = `${currentDate}.txt`;
+//   const filePath = path.join(folderPath, fileName);
+//   const content = `${Date.now()}`; 
 
-  try {
-    fs.writeFileSync(filePath, content);
-    res.status(200).send(`File ${fileName} created in ${folderPath} with content: ${content}`);
-  } catch (err) {
-    res.status(500).send('Error creating file');
-  }
+//   try {
+//     fs.writeFileSync(filePath, content);
+//     res.status(200).send(`File ${fileName} created in ${folderPath} with content: ${content}`);
+//   } catch (err) {
+//     res.status(500).send('Error creating file');
+//   }
+// });
+
+app.post('/createaFile', (req, res) => {
+  const folderPath = 'Sample-folder'; // Replace 'your-folder' with your desired folder path
+  const currentDate = new Date();
+  const formattedDate = currentDate.toISOString().replace(/:/g, '-').replace(/\..+/, ''); // Format date for filename
+  const fileName = `${formattedDate}.txt`;
+  const filePath = path.join(folderPath, fileName);
+  const content = `${Date.now()}`; // Content is the current timestamp
+
+  fs.writeFile(filePath, content, (err) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error creating file' });
+    }
+    return res.status(200).json({ message: 'File created successfully', filePath });
+  });
 });
 
 
