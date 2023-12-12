@@ -4,12 +4,16 @@
 
 API endpoint that I used: '/createfile'
 
+Method Type : POST
+
 Render URL : https://nodejs-filesystemendpoint.onrender.com/createfile
 
 
 2.API endpoint to retrieve all the textfiles in a particular created folder.
 
 API endpoint that I used: '/getAllFiles'
+
+Method Type : GET
 
 Render URL : https://nodejs-filesystemendpoint.onrender.com/getAllFiles
 
