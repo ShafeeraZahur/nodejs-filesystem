@@ -16,7 +16,7 @@ const port = 5000;
 
 
 app.post('/createfile', (req, res) => {
-  const folderPath = 'Sample-Folder'; 
+  const folderPath = 'My-Folder'; 
   console.log('Folder Path:', folderPath);
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString(); 
@@ -38,7 +38,7 @@ app.post('/createfile', (req, res) => {
 // 2. Endpoint to retrieve all the files in a particular folder
 
 app.get('/getAllFiles',(req,res)=>{
-    const folderPath='Sample-Folder';
+    const folderPath='My-Folder';
     try {
         const files = fs.readdirSync(folderPath);
         res.status(200).json({ files });
