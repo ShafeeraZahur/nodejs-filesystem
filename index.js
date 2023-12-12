@@ -29,7 +29,7 @@ app.post('/createfile', (req, res) => {
       return res.status(500).json({ error: 'Error creating file' });
     }
     console.log('File created successfully:', filePath);
-    return res.status(200).json({ message: 'File created successfully', filePath });
+    return res.status(200).json({ message: 'File created successfully', filePath , content });
     
   });
 });
